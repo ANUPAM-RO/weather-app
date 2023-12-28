@@ -1,11 +1,10 @@
 .container {
-  width: 80vw;
-  height: 85vh;
+  width: 100vw;
+  height: 100vh;
   margin: auto;
-  margin-top: 5vh;
-  border-radius: 12px;
   background-image: url("../assets/background-image.jpg");
   background-size: cover;
+  overflow-y: hidden;
 }
 .top-bar {
   display: flex;
@@ -37,7 +36,7 @@
 .city {
   text-align: center;
   font-size: 36px;
-  color: #006400;
+  color: #75d875;
   font-weight: 600;
   padding-top: 10px;
   text-transform: uppercase;
@@ -51,7 +50,7 @@
 }
 
 .box {
-  height: 60%;
+  height: 33vh;
   width: 80%;
   overflow: hidden;
   border: 1px solid rgb(122, 118, 118);
@@ -97,12 +96,12 @@
 }
 .humidity-percentage,
 .speed {
-  color: blue;
+  color: rgb(246, 246, 255);
   font-size: 18px;
   font-weight: 600;
 }
 .text {
-  color: rgb(44, 43, 43);
+  color: rgb(248, 248, 248);
   font-weight: 500;
 }
 .element {
@@ -116,9 +115,9 @@
   color: #ec16ec;
 }
 .card-weather {
-  background-color: #428bca;
+  background-color: black;
   border: 1px solid green;
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
   border-radius: 8px;
 }
@@ -133,4 +132,9 @@
   gap: 24px;
   font-size: 24px;
   color: cyan;
+}
+.reload-image{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
 }

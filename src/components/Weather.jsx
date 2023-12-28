@@ -5,6 +5,7 @@ import search from "../assets/search.png";
 import cloud from "../assets/cloud.png";
 import humidity from "../assets/humidity.png";
 import wind from "../assets/wind.png";
+import reload from "../assets/reload.png";
 import WeatherCard from "./WeatherCard";
 
 const Weather = () => {
@@ -12,6 +13,8 @@ const Weather = () => {
   const [searchCity, setSearchCity] = useState("");
   const [city, setCity] = useState("");
   const [isError, setIsError] = useState(false);
+
+  console.log(process.env.REACT_APP_API_KEY)
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -36,7 +39,6 @@ const Weather = () => {
       const response = await fetch(apiUrl);
       const data = await response.json();
 
-
       if (response.ok && data.display_name) {
         setCity(data.address.state);
       } else {
@@ -47,33 +49,42 @@ const Weather = () => {
     }
   };
 
+  const fetchData = async () => {
+    try {
+      const api_key = process.env.REACT_APP_API_KEY;
+      const api_url = process.env.REACT_APP_API_URL;
+
+      const response = await axios.get(
+        `${api_url}?key=${api_key}&q=${city}&days=7`
+      );
+
+      console.log(response);
+
+      setData(response.data);
+      setIsError(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setIsError(true);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const api_key = "2ee787d96ca84609afc130149232812";
-        const api_url = "http://api.weatherapi.com/v1/forecast.json";
-
-        const response = await axios.get(
-          `${api_url}?key=${api_key}&q=${city}&days=7`
-        );
-
-        console.log(response);
-
-        setData(response.data);
-        setIsError(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsError(true);
-      }
-    };
-
     fetchData();
   }, [city]);
+
+  const handleReload = () => {
+    window.location.reload();
+  };
 
   return (
     <>
       {isError ? (
-        <div className="location-error"> Location not found </div>
+        <div className="location-error">
+          Location not found
+          <br />
+          <div onClick={handleReload}>
+            <img src={reload} alt="" className="reload-image" />
+          </div>
+        </div>
       ) : (
         <div className="container">
           <div className="top-bar">
