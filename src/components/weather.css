@@ -1,8 +1,8 @@
 .container {
-  width: 50vw;
-  height: 70vh;
+  width: 80vw;
+  height: 85vh;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 5vh;
   border-radius: 12px;
   background-image: url("../assets/background-image.jpg");
   background-size: cover;
@@ -15,9 +15,9 @@
 }
 .top-bar input {
   display: flex;
-  width: 250px;
+  width: 30vw;
   height: 40px;
-  border-radius: 40px;
+  border-radius: 5rem;
   border: none;
   outline: none;
   padding-left: 20px;
@@ -64,9 +64,10 @@
   top: 100%;
   position: relative;
   transition: all 0.3s ease-out;
-  background: #428bca;
+  /* background: #428bca; */
   height: 100%;
   width: 100%;
+  overflow-y: auto;
 }
 
 .box:hover > .hid-box {
@@ -83,8 +84,9 @@
   width: 100px;
 }
 .weather-temp {
-  font-size: 36px;
+  font-size: 40px;
   color: white;
+  font-weight: 600;
 }
 .data-container {
   display: flex;
@@ -95,16 +97,40 @@
 }
 .humidity-percentage,
 .speed {
-  color: rgb(170, 238, 238);
+  color: blue;
   font-size: 18px;
   font-weight: 600;
 }
 .text {
-  color: rgb(241, 218, 218);
+  color: rgb(44, 43, 43);
   font-weight: 500;
 }
-.element{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.element {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.weather-day {
+  font-size: 40px;
+  font-weight: 600;
+  color: #ec16ec;
+}
+.card-weather {
+  background-color: #428bca;
+  border: 1px solid green;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.location-error {
+  text-align: center;
+  margin-top: 50vh;
+  font-size: 40px;
+}
+.weather-temp-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 24px;
+  font-size: 24px;
+  color: cyan;
 }
