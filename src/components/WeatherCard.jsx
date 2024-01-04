@@ -1,8 +1,6 @@
 import React from "react";
 import "./weather.css";
 import cloud from "../assets/cloud.png";
-import humidity from "../assets/humidity.png";
-import wind from "../assets/wind.png";
 const WeatherCard = ({ data }) => {
   return (
     <div className="card-weather">

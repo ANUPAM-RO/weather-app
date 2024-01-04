@@ -14,8 +14,6 @@ const Weather = () => {
   const [city, setCity] = useState("");
   const [isError, setIsError] = useState(false);
 
-  console.log(process.env.REACT_APP_API_KEY)
-
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
